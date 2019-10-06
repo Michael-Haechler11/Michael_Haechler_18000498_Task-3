@@ -161,7 +161,7 @@ namespace Task_1_POE_18000498
             }
 
         }
-        public override void Combat(int type)
+        public override void Combat(int type) //combat method for the attacking of the units
         {
 
             if (closestUnit is MeleeUnit)
@@ -294,7 +294,7 @@ namespace Task_1_POE_18000498
                 + "\nAttack Damage: " + Attack
                 + "\nAttack Range: " + AttackRange
                 + "\nFaction: " + FactionType;
-        }
+        } 
     }
 
 }
