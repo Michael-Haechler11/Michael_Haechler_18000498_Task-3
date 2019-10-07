@@ -34,7 +34,7 @@ namespace Task_1_POE_18000498
         private int mapHeight = 20;
         private int mapWidth = 20;
 
-        Button[,] buttons = new Button[20, 20]; //an array that sets the grid 
+        Button[,] buttons;// = new Button[20, 20]; //an array that sets the grid 
 
         static int UnitNum = 8;
         public int Round = 1;
@@ -55,6 +55,8 @@ namespace Task_1_POE_18000498
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            buttons = new Button[mapWidth, mapHeight];
+            m = new Map(UnitNum, mapHeight, mapWidth);
             m.GenerateBattleField();
             Placebuttons();
         }
@@ -215,9 +217,9 @@ namespace Task_1_POE_18000498
 
             Size btnSize = new Size(30, 30);
 
-            for (int x = 0; x < 20; x++)
+            for (int x = 0; x < mapWidth; x++)
             {
-                for (int y = 0; y < 20; y++)
+                for (int y = 0; y < mapHeight; y++)
                 {
                     Button btn = new Button();
 
@@ -299,9 +301,9 @@ namespace Task_1_POE_18000498
                     buttons[x, y] = btn;
                 }
             }
-            for (int x = 0; x < 20; x++)
+            for (int x = 0; x < mapWidth; x++)
             {
-                for (int y = 0; y < 20; y++)
+                for (int y = 0; y < mapHeight; y++)
                 {
                     gb1.Controls.Add(buttons[x, y]);
                 }

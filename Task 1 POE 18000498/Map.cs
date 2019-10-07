@@ -11,7 +11,7 @@ namespace Task_1_POE_18000498
     class Map
     {
 
-        public string[,] map = new string[20, 20];
+        public string[,] map;// = new string[20, 20];
 
 
         int mapHeight = 20;
@@ -19,13 +19,13 @@ namespace Task_1_POE_18000498
         public List<Unit> units = new List<Unit>();
         public List<Unit> rangedUnits = new List<Unit>();
         public List<Unit> meleeUnits = new List<Unit>();
-        public buildings[,] buildingMap = new buildings[20, 20];
+        public buildings[,] buildingMap;// = new buildings[20, 20];
 
         public List<buildings> buildings = new List<buildings>();
         public List<ResourceBuilding> BitCoinMine = new List<ResourceBuilding>();
         public List<FactoryBuildings> Barracks = new List<FactoryBuildings>();
         public List<WizzardUnit> wizzardUnits = new List<WizzardUnit>();
-        public Unit[,] uniMap = new Unit [20, 20];
+        public Unit[,] uniMap;// = new Unit [20, 20];
  
 
         Random Rd = new Random();
@@ -172,9 +172,9 @@ namespace Task_1_POE_18000498
 
         public void Populate() // method used to populate the map with units
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < mapWidth; i++)
             {
-                for (int j = 0; j < 20; j++)
+                for (int j = 0; j < mapHeight; j++)
                 {
                     map[i, j] = " ";
                 }
@@ -207,9 +207,9 @@ namespace Task_1_POE_18000498
         public void PlaceBuildings()  //method that places the buidlings on the map
         {
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < mapWidth; i++)
             {
-                for (int j = 0; j < 20; j++)
+                for (int j = 0; j < mapHeight; j++)
                 {
                     buildingMap[i, j] = null;
                 }
@@ -260,9 +260,9 @@ namespace Task_1_POE_18000498
 
         public void PlaceUnits()  //places units on the map in accordance to the buildings
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < mapWidth; i++)
             {
-                for (int j = 0; j < 20; j++)
+                for (int j = 0; j < mapHeight; j++)
                 {
                     map[i, j] = " ";
                 }
