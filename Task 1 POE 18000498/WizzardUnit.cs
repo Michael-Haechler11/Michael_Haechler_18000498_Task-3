@@ -161,7 +161,7 @@ namespace Task_1_POE_18000498
             }
 
         }
-        public override void Combat(int type) //combat method for the attacking of the units
+        public override void Combat(int type) //combat method for the wizard to attack the 
         {
             foreach (Unit u in units)
             {

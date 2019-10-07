@@ -382,5 +382,33 @@ namespace Task_1_POE_18000498
 
             lbl1.Text = "Round: " + Round;
         }
+
+        private void btnSetSize_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                mapHeight = Convert.ToInt32(txtBoxH.Text);
+                mapWidth = Convert.ToInt32(txtBoxW.Text);
+
+                if (mapHeight < 10 || mapWidth < 10)
+                {
+                    MessageBox.Show("Please enter values that are greater than 9X9");
+                }
+                else
+                {
+                    m = new Map(UnitNum, mapHeight, mapWidth);
+
+                    buttons = new Button[mapWidth, mapHeight];
+
+                    m.GenerateBattleField();
+                    PlaceButtons();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid Numbers Only");
+            }
+        }
     }
 }

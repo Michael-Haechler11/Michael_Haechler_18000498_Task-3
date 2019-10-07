@@ -13,8 +13,9 @@ namespace Task_1_POE_18000498
 
         public string[,] map = new string[20, 20];
 
-        
-        
+
+        int mapHeight = 20;
+        int mapWidth = 20;
         public List<Unit> units = new List<Unit>();
         public List<Unit> rangedUnits = new List<Unit>();
         public List<Unit> meleeUnits = new List<Unit>();
@@ -31,8 +32,15 @@ namespace Task_1_POE_18000498
 
         int BuildingNum;
 
-        public Map(int UnitN = 0)
+        public Map(int UnitN, int MapH, int MapW)
         {
+            mapHeight = MapH;
+            mapWidth = MapW;
+
+            buildingMap = new buildings[mapWidth, mapHeight];
+            uniMap = new Unit[mapWidth, mapHeight];
+            map = new string [mapWidth, mapHeight];
+
             BuildingNum = UnitN;
 
         }
@@ -90,13 +98,13 @@ namespace Task_1_POE_18000498
             {
                 for (int i = 0; i < BitCoinMine.Count; i++)
                 {
-                    int xPos = Rd.Next(0, 20);
-                    int yPos = Rd.Next(0, 20);
+                    int xPos = Rd.Next(0, mapHeight);
+                    int yPos = Rd.Next(0, mapWidth);
 
                     while (xPos == BitCoinMine[i].PosX && yPos == BitCoinMine[i].PosY && xPos == Barracks[i].PosX && yPos == Barracks[i].PosY)
                     {
-                        xPos = Rd.Next(0, 20);
-                        yPos = Rd.Next(0, 20);
+                        xPos = Rd.Next(0, mapHeight);
+                        yPos = Rd.Next(0, mapWidth);
                     }
 
                     u.PosX = xPos;
@@ -112,13 +120,13 @@ namespace Task_1_POE_18000498
             {
                 for (int i = 0; i < Barracks.Count; i++)
                 {
-                    int xPos = Rd.Next(0, 20);
-                    int yPos = Rd.Next(0, 20);
+                    int xPos = Rd.Next(0, mapHeight);
+                    int yPos = Rd.Next(0, mapWidth);
 
                     while (xPos == Barracks[i].PosX && yPos == Barracks[i].PosY && xPos == BitCoinMine[i].PosX && yPos == BitCoinMine[i].PosY)
                     {
-                        xPos = Rd.Next(0, 20);
-                        yPos = Rd.Next(0, 20);
+                        xPos = Rd.Next(0, mapHeight);
+                        yPos = Rd.Next(0, mapWidth);
                     }
 
                     u.PosX = xPos;
@@ -142,13 +150,13 @@ namespace Task_1_POE_18000498
             {
                 for (int i = 0; i < wizzardUnits.Count; i++)
                 {
-                    int xPos = Rd.Next(0, 20);
-                    int yPos = Rd.Next(0, 20);
+                    int xPos = Rd.Next(0, mapHeight);
+                    int yPos = Rd.Next(0, mapWidth);
 
                     while (xPos == BitCoinMine[i].PosX && yPos == BitCoinMine[i].PosY && xPos == Barracks[i].PosX && yPos == Barracks[i].PosY && xPos == wizzardUnits[i].PosX && yPos == wizzardUnits[i].PosY)
                     {
-                        xPos = Rd.Next(0, 20);
-                        yPos = Rd.Next(0, 20);
+                        xPos = Rd.Next(0, mapHeight);
+                        yPos = Rd.Next(0, mapWidth);
                     }
 
                     u.PosX = xPos;

@@ -37,6 +37,11 @@
             this.GameTick = new System.Windows.Forms.Timer(this.components);
             this.btnsave = new System.Windows.Forms.Button();
             this.btnread = new System.Windows.Forms.Button();
+            this.txtBoxH = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtBoxW = new System.Windows.Forms.TextBox();
+            this.btnSetSize = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gb1
@@ -110,11 +115,55 @@
             this.btnread.UseVisualStyleBackColor = true;
             this.btnread.Click += new System.EventHandler(this.btnread_Click);
             // 
+            // txtBoxH
+            // 
+            this.txtBoxH.Location = new System.Drawing.Point(1338, 162);
+            this.txtBoxH.Multiline = true;
+            this.txtBoxH.Name = "txtBoxH";
+            this.txtBoxH.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxH.TabIndex = 7;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtBoxW
+            // 
+            this.txtBoxW.Location = new System.Drawing.Point(1405, 162);
+            this.txtBoxW.Multiline = true;
+            this.txtBoxW.Name = "txtBoxW";
+            this.txtBoxW.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxW.TabIndex = 9;
+            // 
+            // btnSetSize
+            // 
+            this.btnSetSize.Location = new System.Drawing.Point(1338, 189);
+            this.btnSetSize.Name = "btnSetSize";
+            this.btnSetSize.Size = new System.Drawing.Size(128, 32);
+            this.btnSetSize.TabIndex = 10;
+            this.btnSetSize.Text = "Set Size";
+            this.btnSetSize.UseVisualStyleBackColor = true;
+            this.btnSetSize.Click += new System.EventHandler(this.btnSetSize_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1277, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Map Size";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1570, 725);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSetSize);
+            this.Controls.Add(this.txtBoxW);
+            this.Controls.Add(this.txtBoxH);
             this.Controls.Add(this.btnread);
             this.Controls.Add(this.btnsave);
             this.Controls.Add(this.rtb1);
@@ -140,6 +189,11 @@
         private System.Windows.Forms.Timer GameTick;
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.Button btnread;
+        private System.Windows.Forms.TextBox txtBoxH;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox txtBoxW;
+        private System.Windows.Forms.Button btnSetSize;
+        private System.Windows.Forms.Label label1;
     }
 }
 
