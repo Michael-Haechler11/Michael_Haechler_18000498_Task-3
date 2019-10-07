@@ -12,6 +12,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 namespace Task_1_POE_18000498
 {
+
+    [Serializable
+        ]
     enum Faction
     {
         Overwatch,
@@ -28,12 +31,15 @@ namespace Task_1_POE_18000498
 
     public partial class Form1 : Form
     {
+        private int mapHeight = 20;
+        private int mapWidth = 20;
+
         Button[,] buttons = new Button[20, 20]; //an array that sets the grid 
 
         static int UnitNum = 8;
         public int Round = 1;
 
-        Map m = new Map(8);
+        private Map m;
 
    
 
@@ -402,7 +408,7 @@ namespace Task_1_POE_18000498
                     buttons = new Button[mapWidth, mapHeight];
 
                     m.GenerateBattleField();
-                    PlaceButtons();
+                    Placebuttons();
                 }
             }
             catch
