@@ -87,7 +87,7 @@ namespace Task_1_POE_18000498
         public override void Move(int type)
         {
             //Moves towards closest enemey
-            if (Health > MaxHealth * 0.25)
+            if (Health > MaxHealth * 0.5)
             {
                 if (type == 0)
                 {
@@ -163,17 +163,84 @@ namespace Task_1_POE_18000498
         }
         public override void Combat(int type) //combat method for the attacking of the units
         {
+            foreach (Unit u in units)
+            {
+                if (u is MeleeUnit)
+                {
+                    MeleeUnit M = (MeleeUnit)u;
 
-            if (closestUnit is MeleeUnit)
-            {
-                MeleeUnit M = (MeleeUnit)closestUnit;
-                M.Health -= Attack;
+                    if (M.PosX == PosX - 1 && M.PosY == PosY - 1)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX && M.PosY == PosY - 1)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX + 1 && M.PosY == PosY - 1)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX - 1 && M.PosY == PosY)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX + 1 && M.PosY == PosY)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX - 1 && M.PosY == PosY + 1)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX && M.PosY == PosY + 1)
+                    {
+                        M.Health -= 1;
+                    }
+                    else if (M.PosX == PosX + 1 && M.PosY == PosY + 1)
+                    {
+                        M.Health -= 1;
+                    }
+                }
+                else if (u is RangedUnit)
+                {
+                    RangedUnit R = (RangedUnit)u;
+
+                    if(R.PosX == PosX - 1 && R.PosY == PosY - 1)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX && R.PosY == PosY - 1)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX +1 && R.PosY == PosY - 1)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX -1 && R.PosY == PosY)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX + 1 && R.PosY == PosY)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX - 1 && R.PosY == PosY + 1)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if(R.PosX == PosX && R.PosY == PosY + 1)
+                    {
+                        R.Health -= 1;
+                    }
+                    else if (R.PosX == PosX +1 && R.PosY == PosY +1)
+                    {
+                        R.Health -= 1;
+                    }
+                }
             }
-            else if (closestUnit is RangedUnit)
-            {
-                RangedUnit R = (RangedUnit)closestUnit;
-                R.Health -= Attack;
-            }
+
         }
         public override void CheckAttackRange(List<Unit> uni, List<buildings> build)
         {
@@ -224,7 +291,7 @@ namespace Task_1_POE_18000498
                 distance = bDistance;
                 enemyType = 1;
             }
-            if (Health > MaxHealth * 0.25)
+            if (Health > MaxHealth * 0.5)
             {
                 if (distance <= AttackRange)
                 {
